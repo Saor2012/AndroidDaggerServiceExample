@@ -2,13 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androiddaggerservice">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.hardware.location.gps" />
+
     <application
         android:name=".app.App"
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".presentation.MainActivity">
             <intent-filter>
@@ -18,23 +19,23 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".data.BroadcasterService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter android:priority="1000">
-
-                <action android:name="uploaderposandroid.START_UPLOADER"/>
-                <action android:name="uploaderposandroid.STOP_UPLOADER"/>
-            </intent-filter>
-        </receiver>
-<!--        <service android:name=".ServicePos"-->
+<!--        <receiver-->
+<!--            android:name=".data.BroadcasterService"-->
 <!--            android:enabled="true"-->
-<!--            android:process=":ServiceProcess">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="ua.pbank.uploaderposandroid.data.ServiceXZ" />-->
+<!--            android:exported="true">-->
+<!--            <intent-filter android:priority="1000">-->
+
+<!--                <action android:name="uploaderposandroid.START_UPLOADER"/>-->
+<!--                <action android:name="uploaderposandroid.STOP_UPLOADER"/>-->
 <!--            </intent-filter>-->
-<!--        </service>-->
+<!--        </receiver>-->
+        <service android:name=".data.ServicePos"
+            android:process=":ServiceProcess">
+            <intent-filter>
+<!--                <action android:name="ua.pbank.uploaderposandroid.data.ServiceXZ" />-->
+                <action android:name="com.example.androiddaggerreceiver" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

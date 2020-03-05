@@ -1,15 +1,9 @@
 package com.example.androiddaggerservice.app;
 
-
-import android.app.PendingIntent;
-import android.content.Intent;
-
 import com.example.androiddaggerservice.data.di.component.DaggerAppDaggerComponent;
-import com.example.androiddaggerservice.presentation.MainActivity;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
-import io.reactivex.Notification;
 
 public class App extends DaggerApplication {
     @Override

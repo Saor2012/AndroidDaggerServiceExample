@@ -12,11 +12,7 @@ import dagger.Module;
 
 @Module
 public abstract class ApplicationModule {
-
-
     @Singleton
     @Binds
     abstract Context provideContext(App app);
-
-
 }
